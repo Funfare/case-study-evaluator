@@ -12,11 +12,13 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js').vue()
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
-    ])
+    .sass('resources/scss/app.scss', 'public/css')
+    //.postCss('resources/css/app.css', 'public/css', [
+    //    require('postcss-import'),
+    //   require('tailwindcss'),
+    //    require('autoprefixer'),
+    //    require('@fortawesome/fontawesome-free')
+    //])
     .webpackConfig(require('./webpack.config'));
 
 if (mix.inProduction()) {
