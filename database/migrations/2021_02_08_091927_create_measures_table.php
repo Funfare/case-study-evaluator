@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScenariosTable extends Migration
+class CreateMeasuresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateScenariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('scenarios', function (Blueprint $table) {
+        Schema::create('measures', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->foreignId('scenario_id');
             $table->foreignId('user_id');
+            $table->string('name');
+            $table->string('comment');
+            $table->text('hints');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateScenariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scenarios');
+        Schema::dropIfExists('measures');
     }
 }

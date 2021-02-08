@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ScenarioController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,5 +30,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
-    Route::resource('scenarios', 'ScenarioController');
+    Route::resource('scenarios', ScenarioController::class);
 });

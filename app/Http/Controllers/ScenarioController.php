@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Scenario;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ScenarioController extends Controller
 {
@@ -24,7 +25,8 @@ class ScenarioController extends Controller
      */
     public function create()
     {
-        //
+
+        return Inertia::render('Scenario/Create');
     }
 
     /**
